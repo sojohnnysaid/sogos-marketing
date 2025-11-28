@@ -32,6 +32,13 @@ spec:
           value: "mg.sogos.io"
         - name: CONTACT_EMAIL
           value: "john@sogos.io"
+        - name: TWENTY_API_URL
+          value: "http://192.168.1.226:3080"
+        - name: TWENTY_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: twenty-credentials
+              key: api-key
         resources:
           requests:
             memory: "64Mi"
