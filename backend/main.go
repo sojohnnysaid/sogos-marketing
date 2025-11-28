@@ -9,11 +9,41 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"regexp"
 	"strings"
 	"time"
 
 	"github.com/mailgun/mailgun-go/v4"
 )
+
+// normalizePhone converts phone to E.164 format for Twenty CRM
+// Returns empty string if phone can't be normalized
+func normalizePhone(phone string) string {
+	if phone == "" {
+		return ""
+	}
+	// Strip all non-digits
+	re := regexp.MustCompile(`\D`)
+	digits := re.ReplaceAllString(phone, "")
+
+	// Need at least 10 digits for US number
+	if len(digits) < 10 {
+		return ""
+	}
+
+	// If 10 digits, assume US and add +1
+	if len(digits) == 10 {
+		return "+1" + digits
+	}
+
+	// If 11 digits starting with 1, add +
+	if len(digits) == 11 && digits[0] == '1' {
+		return "+" + digits
+	}
+
+	// Otherwise return with + prefix
+	return "+" + digits
+}
 
 type ContactRequest struct {
 	Name    string `json:"name"`
@@ -335,9 +365,11 @@ func findOrCreatePerson(apiURL, apiKey, firstName, lastName, email, phone, compa
 		},
 	}
 
-	if phone != "" {
+	// Normalize phone to E.164 format for Twenty CRM
+	normalizedPhone := normalizePhone(phone)
+	if normalizedPhone != "" {
 		input["phones"] = map[string]interface{}{
-			"primaryPhoneNumber": phone,
+			"primaryPhoneNumber": normalizedPhone,
 		}
 	}
 
