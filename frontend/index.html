@@ -350,7 +350,8 @@
                 </div>
 
                 <div>
-                    <input type="tel" id="phone" name="phone" placeholder="Phone Number"
+                    <input type="tel" id="phone" name="phone" placeholder="Phone (e.g. 555-123-4567)"
+                        pattern="[\d\s\-\(\)\+]+"
                         class="w-full bg-transparent border-b-2 border-gray-300 focus:border-gray-900 outline-none py-4 text-lg font-light placeholder-gray-400 transition-colors">
                 </div>
 
@@ -443,11 +444,23 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
 
+    // Normalize phone to E.164 format
+    const rawPhone = document.getElementById('phone').value;
+    const digits = rawPhone.replace(/\D/g, '');
+    let normalizedPhone = '';
+    if (digits.length === 10) {
+        normalizedPhone = '+1' + digits;
+    } else if (digits.length === 11 && digits[0] === '1') {
+        normalizedPhone = '+' + digits;
+    } else if (digits.length > 10) {
+        normalizedPhone = '+' + digits;
+    }
+
     const formData = {
         name: document.getElementById('name').value,
         company: document.getElementById('company').value,
         email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
+        phone: normalizedPhone,
         message: document.getElementById('message').value,
         service: document.getElementById('service').value
     };
