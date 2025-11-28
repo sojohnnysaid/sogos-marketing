@@ -465,7 +465,7 @@ func createTwentyNote(apiURL, apiKey, title, body, opportunityID string) error {
 	noteInput := map[string]interface{}{
 		"title": title,
 		"bodyV2": map[string]interface{}{
-			"blocknote": body,
+			"markdown": body,
 		},
 	}
 
@@ -585,7 +585,7 @@ func sendNotificationEmail(req ContactRequest, lead *LeadResult) error {
 	// Build CRM link if we have an opportunity ID
 	crmLink := ""
 	if lead != nil && lead.OpportunityID != "" {
-		crmLink = fmt.Sprintf("\n\n📊 View in CRM: %s/objects/opportunities/%s", crmURL, lead.OpportunityID)
+		crmLink = fmt.Sprintf("\n\n📊 View in CRM: %s/object/opportunity/%s", crmURL, lead.OpportunityID)
 	}
 
 	personStatus := "New contact"
