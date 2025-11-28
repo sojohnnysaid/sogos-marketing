@@ -440,7 +440,78 @@ func createTwentyOpportunity(apiURL, apiKey, name, message, personID, companyID 
 		return "", fmt.Errorf("failed to parse opportunity response: %w", err)
 	}
 
-	return result.CreateOpportunity.ID, nil
+	opportunityID := result.CreateOpportunity.ID
+
+	// Create a note with the message if provided
+	if message != "" && opportunityID != "" {
+		if err := createTwentyNote(apiURL, apiKey, "Project Details", message, opportunityID); err != nil {
+			log.Printf("Warning: Failed to create note for opportunity: %v", err)
+		}
+	}
+
+	return opportunityID, nil
+}
+
+func createTwentyNote(apiURL, apiKey, title, body, opportunityID string) error {
+	// Step 1: Create the note
+	noteQuery := `
+		mutation CreateNote($input: NoteCreateInput!) {
+			createNote(data: $input) {
+				id
+			}
+		}
+	`
+
+	noteInput := map[string]interface{}{
+		"title": title,
+		"bodyV2": map[string]interface{}{
+			"blocknote": body,
+		},
+	}
+
+	noteVars := map[string]interface{}{
+		"input": noteInput,
+	}
+
+	noteResp, err := executeTwentyGraphQL(apiURL, apiKey, noteQuery, noteVars)
+	if err != nil {
+		return fmt.Errorf("failed to create note: %w", err)
+	}
+
+	var noteResult struct {
+		CreateNote struct {
+			ID string `json:"id"`
+		} `json:"createNote"`
+	}
+
+	if err := json.Unmarshal(noteResp.Data, &noteResult); err != nil {
+		return fmt.Errorf("failed to parse note response: %w", err)
+	}
+
+	noteID := noteResult.CreateNote.ID
+
+	// Step 2: Link the note to the opportunity via NoteTarget
+	targetQuery := `
+		mutation CreateNoteTarget($input: NoteTargetCreateInput!) {
+			createNoteTarget(data: $input) {
+				id
+			}
+		}
+	`
+
+	targetVars := map[string]interface{}{
+		"input": map[string]interface{}{
+			"noteId":        noteID,
+			"opportunityId": opportunityID,
+		},
+	}
+
+	_, err = executeTwentyGraphQL(apiURL, apiKey, targetQuery, targetVars)
+	if err != nil {
+		return fmt.Errorf("failed to link note to opportunity: %w", err)
+	}
+
+	return nil
 }
 
 func executeTwentyGraphQL(apiURL, apiKey, query string, variables map[string]interface{}) (*GraphQLResponse, error) {

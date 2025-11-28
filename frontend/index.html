@@ -350,14 +350,23 @@
                 </div>
 
                 <div>
-                    <input type="tel" id="phone" name="phone" placeholder="Phone (e.g. 555-123-4567)"
-                        pattern="[\d\s\-\(\)\+]+"
-                        class="w-full bg-transparent border-b-2 border-gray-300 focus:border-gray-900 outline-none py-4 text-lg font-light placeholder-gray-400 transition-colors">
+                    <label class="block text-sm font-light text-gray-500 mb-2">Phone Number</label>
+                    <div class="flex border-2 border-gray-300 focus-within:border-gray-900 transition-colors rounded">
+                        <div class="flex items-center px-4 bg-gray-50 border-r border-gray-300 text-gray-600 font-light">
+                            <span class="mr-2">🇺🇸</span>
+                            <span>+1</span>
+                        </div>
+                        <input type="tel" id="phone" name="phone" placeholder="555-123-4567"
+                            pattern="[0-9\-\s]+"
+                            maxlength="12"
+                            class="flex-1 bg-transparent outline-none px-4 py-4 text-lg font-light placeholder-gray-400">
+                    </div>
                 </div>
 
                 <div>
-                    <textarea id="message" name="message" rows="3" placeholder="Tell us about your project (optional)"
-                        class="w-full bg-transparent border-b-2 border-gray-300 focus:border-gray-900 outline-none py-4 text-lg font-light placeholder-gray-400 transition-colors resize-none"></textarea>
+                    <label class="block text-sm font-light text-gray-500 mb-2">Tell us about your project (optional)</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Describe your goals, timeline, or any specific requirements..."
+                        class="w-full bg-transparent border-2 border-gray-300 focus:border-gray-900 outline-none p-4 text-lg font-light placeholder-gray-400 transition-colors resize-none rounded"></textarea>
                 </div>
 
                 <div class="pt-6">
