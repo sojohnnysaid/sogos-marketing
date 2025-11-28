@@ -33,7 +33,7 @@ spec:
         - name: CONTACT_EMAIL
           value: "john@sogos.io"
         - name: TWENTY_API_URL
-          value: "http://192.168.1.226:3080"
+          value: "https://crm.sogos.io"
         - name: TWENTY_API_KEY
           valueFrom:
             secretKeyRef:

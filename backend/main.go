@@ -42,6 +42,14 @@ type GraphQLResponse struct {
 	} `json:"errors,omitempty"`
 }
 
+// LeadResult holds the IDs created in Twenty CRM
+type LeadResult struct {
+	PersonID      string
+	CompanyID     string
+	OpportunityID string
+	IsNewPerson   bool
+}
+
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -101,15 +109,22 @@ func handleContact(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Create lead in Twenty CRM (don't fail if this errors)
-	if err := createTwentyLead(req); err != nil {
-		log.Printf("Warning: Failed to create Twenty CRM lead: %v", err)
+	// Create lead in Twenty CRM
+	var leadResult *LeadResult
+	var crmErr error
+	leadResult, crmErr = createTwentyLead(req)
+	if crmErr != nil {
+		log.Printf("Warning: Failed to create Twenty CRM lead: %v", crmErr)
 	} else {
-		log.Printf("Created Twenty CRM lead for %s", req.Email)
+		if leadResult.IsNewPerson {
+			log.Printf("Created new Twenty CRM lead for %s", req.Email)
+		} else {
+			log.Printf("Found existing person for %s, created new opportunity", req.Email)
+		}
 	}
 
-	// Send email via Mailgun
-	if err := sendContactEmail(req); err != nil {
+	// Send notification email with CRM link
+	if err := sendNotificationEmail(req, leadResult); err != nil {
 		log.Printf("Failed to send email: %v", err)
 		sendJSON(w, http.StatusInternalServerError, Response{
 			Success: false,
@@ -124,13 +139,15 @@ func handleContact(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-func createTwentyLead(req ContactRequest) error {
+func createTwentyLead(req ContactRequest) (*LeadResult, error) {
 	apiURL := os.Getenv("TWENTY_API_URL")
 	apiKey := os.Getenv("TWENTY_API_KEY")
 
 	if apiURL == "" || apiKey == "" {
-		return fmt.Errorf("twenty CRM configuration missing")
+		return nil, fmt.Errorf("twenty CRM configuration missing")
 	}
+
+	result := &LeadResult{}
 
 	// Parse name into first/last
 	nameParts := strings.SplitN(strings.TrimSpace(req.Name), " ", 2)
@@ -141,20 +158,22 @@ func createTwentyLead(req ContactRequest) error {
 	}
 
 	// Step 1: Create or find Company (if provided)
-	var companyID string
 	if req.Company != "" {
-		var err error
-		companyID, err = createTwentyCompany(apiURL, apiKey, req.Company)
+		companyID, err := findOrCreateCompany(apiURL, apiKey, req.Company)
 		if err != nil {
-			log.Printf("Warning: Failed to create company: %v", err)
+			log.Printf("Warning: Failed to find/create company: %v", err)
+		} else {
+			result.CompanyID = companyID
 		}
 	}
 
-	// Step 2: Create Person
-	personID, err := createTwentyPerson(apiURL, apiKey, firstName, lastName, req.Email, req.Phone, companyID)
+	// Step 2: Find existing person by email or create new one
+	personID, isNew, err := findOrCreatePerson(apiURL, apiKey, firstName, lastName, req.Email, req.Phone, result.CompanyID)
 	if err != nil {
-		return fmt.Errorf("failed to create person: %w", err)
+		return nil, fmt.Errorf("failed to find/create person: %w", err)
 	}
+	result.PersonID = personID
+	result.IsNewPerson = isNew
 
 	// Step 3: Create Opportunity
 	opportunityName := fmt.Sprintf("%s - %s", req.Name, req.Service)
@@ -162,16 +181,60 @@ func createTwentyLead(req ContactRequest) error {
 		opportunityName = fmt.Sprintf("%s - Website Inquiry", req.Name)
 	}
 
-	err = createTwentyOpportunity(apiURL, apiKey, opportunityName, req.Message, personID, companyID)
+	opportunityID, err := createTwentyOpportunity(apiURL, apiKey, opportunityName, req.Message, result.PersonID, result.CompanyID)
 	if err != nil {
-		return fmt.Errorf("failed to create opportunity: %w", err)
+		return nil, fmt.Errorf("failed to create opportunity: %w", err)
 	}
+	result.OpportunityID = opportunityID
 
-	return nil
+	return result, nil
 }
 
-func createTwentyCompany(apiURL, apiKey, name string) (string, error) {
-	query := `
+func findOrCreateCompany(apiURL, apiKey, name string) (string, error) {
+	// First, search for existing company by name
+	searchQuery := `
+		query FindCompany($filter: CompanyFilterInput) {
+			companies(filter: $filter) {
+				edges {
+					node {
+						id
+						name
+					}
+				}
+			}
+		}
+	`
+
+	searchVars := map[string]interface{}{
+		"filter": map[string]interface{}{
+			"name": map[string]interface{}{
+				"ilike": "%" + name + "%",
+			},
+		},
+	}
+
+	resp, err := executeTwentyGraphQL(apiURL, apiKey, searchQuery, searchVars)
+	if err == nil {
+		var searchResult struct {
+			Companies struct {
+				Edges []struct {
+					Node struct {
+						ID   string `json:"id"`
+						Name string `json:"name"`
+					} `json:"node"`
+				} `json:"edges"`
+			} `json:"companies"`
+		}
+
+		if err := json.Unmarshal(resp.Data, &searchResult); err == nil {
+			if len(searchResult.Companies.Edges) > 0 {
+				return searchResult.Companies.Edges[0].Node.ID, nil
+			}
+		}
+	}
+
+	// Create new company if not found
+	createQuery := `
 		mutation CreateCompany($input: CompanyCreateInput!) {
 			createCompany(data: $input) {
 				id
@@ -179,13 +242,13 @@ func createTwentyCompany(apiURL, apiKey, name string) (string, error) {
 		}
 	`
 
-	variables := map[string]interface{}{
+	createVars := map[string]interface{}{
 		"input": map[string]interface{}{
 			"name": name,
 		},
 	}
 
-	resp, err := executeTwentyGraphQL(apiURL, apiKey, query, variables)
+	resp, err = executeTwentyGraphQL(apiURL, apiKey, createQuery, createVars)
 	if err != nil {
 		return "", err
 	}
@@ -203,8 +266,58 @@ func createTwentyCompany(apiURL, apiKey, name string) (string, error) {
 	return result.CreateCompany.ID, nil
 }
 
-func createTwentyPerson(apiURL, apiKey, firstName, lastName, email, phone, companyID string) (string, error) {
-	query := `
+func findOrCreatePerson(apiURL, apiKey, firstName, lastName, email, phone, companyID string) (string, bool, error) {
+	// Search for existing person by email
+	searchQuery := `
+		query FindPerson($filter: PersonFilterInput) {
+			people(filter: $filter) {
+				edges {
+					node {
+						id
+						emails {
+							primaryEmail
+						}
+					}
+				}
+			}
+		}
+	`
+
+	searchVars := map[string]interface{}{
+		"filter": map[string]interface{}{
+			"emails": map[string]interface{}{
+				"primaryEmail": map[string]interface{}{
+					"ilike": email,
+				},
+			},
+		},
+	}
+
+	resp, err := executeTwentyGraphQL(apiURL, apiKey, searchQuery, searchVars)
+	if err == nil {
+		var searchResult struct {
+			People struct {
+				Edges []struct {
+					Node struct {
+						ID     string `json:"id"`
+						Emails struct {
+							PrimaryEmail string `json:"primaryEmail"`
+						} `json:"emails"`
+					} `json:"node"`
+				} `json:"edges"`
+			} `json:"people"`
+		}
+
+		if err := json.Unmarshal(resp.Data, &searchResult); err == nil {
+			if len(searchResult.People.Edges) > 0 {
+				// Found existing person
+				return searchResult.People.Edges[0].Node.ID, false, nil
+			}
+		}
+	}
+
+	// Create new person if not found
+	createQuery := `
 		mutation CreatePerson($input: PersonCreateInput!) {
 			createPerson(data: $input) {
 				id
@@ -232,13 +345,13 @@ func createTwentyPerson(apiURL, apiKey, firstName, lastName, email, phone, compa
 		input["companyId"] = companyID
 	}
 
-	variables := map[string]interface{}{
+	createVars := map[string]interface{}{
 		"input": input,
 	}
 
-	resp, err := executeTwentyGraphQL(apiURL, apiKey, query, variables)
+	resp, err = executeTwentyGraphQL(apiURL, apiKey, createQuery, createVars)
 	if err != nil {
-		return "", err
+		return "", false, err
 	}
 
 	var result struct {
@@ -248,13 +361,13 @@ func createTwentyPerson(apiURL, apiKey, firstName, lastName, email, phone, compa
 	}
 
 	if err := json.Unmarshal(resp.Data, &result); err != nil {
-		return "", fmt.Errorf("failed to parse person response: %w", err)
+		return "", false, fmt.Errorf("failed to parse person response: %w", err)
 	}
 
-	return result.CreatePerson.ID, nil
+	return result.CreatePerson.ID, true, nil
 }
 
-func createTwentyOpportunity(apiURL, apiKey, name, message, personID, companyID string) error {
+func createTwentyOpportunity(apiURL, apiKey, name, message, personID, companyID string) (string, error) {
 	query := `
 		mutation CreateOpportunity($input: OpportunityCreateInput!) {
 			createOpportunity(data: $input) {
@@ -280,8 +393,22 @@ func createTwentyOpportunity(apiURL, apiKey, name, message, personID, companyID 
 		"input": input,
 	}
 
-	_, err := executeTwentyGraphQL(apiURL, apiKey, query, variables)
-	return err
+	resp, err := executeTwentyGraphQL(apiURL, apiKey, query, variables)
+	if err != nil {
+		return "", err
+	}
+
+	var result struct {
+		CreateOpportunity struct {
+			ID string `json:"id"`
+		} `json:"createOpportunity"`
+	}
+
+	if err := json.Unmarshal(resp.Data, &result); err != nil {
+		return "", fmt.Errorf("failed to parse opportunity response: %w", err)
+	}
+
+	return result.CreateOpportunity.ID, nil
 }
 
 func executeTwentyGraphQL(apiURL, apiKey, query string, variables map[string]interface{}) (*GraphQLResponse, error) {
@@ -334,10 +461,11 @@ func executeTwentyGraphQL(apiURL, apiKey, query string, variables map[string]int
 	return &gqlResp, nil
 }
 
-func sendContactEmail(req ContactRequest) error {
+func sendNotificationEmail(req ContactRequest, lead *LeadResult) error {
 	apiKey := os.Getenv("MAILGUN_API_KEY")
 	domain := os.Getenv("MAILGUN_DOMAIN")
 	recipient := os.Getenv("CONTACT_EMAIL")
+	crmURL := os.Getenv("TWENTY_API_URL")
 
 	if apiKey == "" || domain == "" {
 		return fmt.Errorf("mailgun configuration missing")
@@ -349,21 +477,38 @@ func sendContactEmail(req ContactRequest) error {
 
 	mg := mailgun.NewMailgun(domain, apiKey)
 
-	subject := fmt.Sprintf("New Contact Request from %s", req.Name)
-	body := fmt.Sprintf(`New contact form submission:
+	subject := fmt.Sprintf("🎯 New Lead: %s", req.Name)
 
+	// Build CRM link if we have an opportunity ID
+	crmLink := ""
+	if lead != nil && lead.OpportunityID != "" {
+		crmLink = fmt.Sprintf("\n\n📊 View in CRM: %s/objects/opportunities/%s", crmURL, lead.OpportunityID)
+	}
+
+	personStatus := "New contact"
+	if lead != nil && !lead.IsNewPerson {
+		personStatus = "Existing contact (returning lead)"
+	}
+
+	body := fmt.Sprintf(`New lead from sogos.io website!
+
+👤 Contact Information
+━━━━━━━━━━━━━━━━━━━━
 Name: %s
 Company: %s
 Email: %s
 Phone: %s
 Service Interest: %s
+Status: %s
 
-Message:
+💬 Message
+━━━━━━━━━━━━━━━━━━━━
 %s
-`, req.Name, req.Company, req.Email, req.Phone, req.Service, req.Message)
+%s
+`, req.Name, req.Company, req.Email, req.Phone, req.Service, personStatus, req.Message, crmLink)
 
 	m := mg.NewMessage(
-		fmt.Sprintf("Sogos Contact Form <noreply@%s>", domain),
+		fmt.Sprintf("Sogos CRM <noreply@%s>", domain),
 		subject,
 		body,
 		recipient,
