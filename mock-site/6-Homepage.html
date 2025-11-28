@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>::-webkit-scrollbar { display: none;}</style>
+</head>
+<body class="bg-white font-sans text-gray-900">
+
+<header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md transition-all duration-300">
+    <nav class="container mx-auto px-8 py-6">
+        <div class="flex items-center justify-between">
+            <a href="#" class="text-2xl font-serif font-semibold tracking-tight text-gray-900">
+                Sogos
+            </a>
+            <div class="flex items-center space-x-12">
+                <a href="#services" class="text-sm font-light tracking-wide text-gray-600 hover:text-gray-900 transition-colors duration-200">Services</a>
+                <a href="#approach" class="text-sm font-light tracking-wide text-gray-600 hover:text-gray-900 transition-colors duration-200">Approach</a>
+                <a href="#contact" class="text-sm font-light tracking-wide text-gray-600 hover:text-gray-900 transition-colors duration-200">Contact</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section id="hero" class="relative h-[800px] flex items-center justify-center bg-white">
+    <div class="container mx-auto px-8 text-center">
+        <h1 class="text-7xl md:text-8xl font-serif font-semibold text-gray-900 mb-8 leading-tight tracking-tight">
+            Sogos helps<br/>businesses grow.
+        </h1>
+        <p class="text-xl md:text-2xl font-light text-gray-600 mb-16 max-w-3xl mx-auto leading-relaxed">
+            Digital presence, branding, and automation strategies<br/>for the modern enterprise.
+        </p>
+        <a href="#contact" class="inline-block border border-gray-900 px-12 py-4 text-sm tracking-widest uppercase font-light hover:bg-gray-900 hover:text-white transition-all duration-300">
+            Start a Project
+        </a>
+    </div>
+</section>
+
+<section id="philosophy" class="py-32 bg-gray-50">
+    <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl font-serif font-semibold text-gray-900 mb-12">
+                Strategic Growth Through Design
+            </h2>
+            <p class="text-lg font-light text-gray-600 leading-relaxed mb-8">
+                In today's competitive landscape, your business needs more than just a presence—it needs a strategic advantage. Sogos combines thoughtful design, technical excellence, and business intelligence to create solutions that don't just look good, but drive measurable results.
+            </p>
+            <p class="text-lg font-light text-gray-600 leading-relaxed">
+                We believe in the power of simplicity. Every element, every interaction, every decision is made with purpose. Our approach strips away the unnecessary to reveal what truly matters: connecting your business with the people who need it most.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="py-32 bg-white">
+    <div class="container mx-auto px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-24">
+                <h2 class="text-sm tracking-widest uppercase font-light text-gray-500 mb-4">Our Services</h2>
+                <h3 class="text-5xl font-serif font-semibold text-gray-900">What we do best</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-24 mb-32">
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-3xl font-serif font-semibold text-gray-900 mb-4">Branding</h4>
+                        <p class="text-lg font-light text-gray-600 leading-relaxed mb-6">
+                            Your brand is more than a logo—it's the complete expression of your business values, personality, and promise to customers.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="text-gray-400 mr-3">—</span>
+                                <span class="font-light text-gray-600">Brand Identity Development</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gray-400 mr-3">—</span>
+                                <span class="font-light text-gray-600">Visual Design Systems</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gray-400 mr-3">—</span>
+                                <span class="font-light text-gray-600">Marketing Collateral</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gray-400 mr-3">—</span>
+                                <span class="font-light text-gray-600">Brand Guidelines</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-3xl font-serif font-semibold text-gray-900 mb-4">Digital Presence</h4>
+                        <p class="text-lg font-light text-gray-600 leading-relaxed mb-6">
+                            Build a digital foundation that works as hard as you do. From conception to launch, we create web experiences that convert.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="text-gray-400 mr-3">—</span>
+                                <span class="font-light text-gray-600">Website Design & Development</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gray-400 mr-3">—</span>
+                                <span class="font-light text-gray-600">Managed Hosting Solutions</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gray-400 mr-3">—</span>
+                                <span class="font-light text-gray-600">Search Engine Optimization</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gray-400 mr-3">—</span>
+                                <span class="font-light text-gray-600">Performance Optimization</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 pt-16">
+                <h4 class="text-sm tracking-widest uppercase font-light text-gray-500 mb-12">Additional Services</h4>
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div>
+                        <h5 class="text-xl font-serif font-semibold text-gray-900 mb-4">Automation</h5>
+                        <ul class="space-y-3">
+                            <li class="font-light text-gray-600">Custom Software Solutions</li>
+                            <li class="font-light text-gray-600">Workflow Automation</li>
+                            <li class="font-light text-gray-600">Notification Systems</li>
+                            <li class="font-light text-gray-600">Spreadsheet Integration</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h5 class="text-xl font-serif font-semibold text-gray-900 mb-4">Data & Insights</h5>
+                        <ul class="space-y-3">
+                            <li class="font-light text-gray-600">Analytics Implementation</li>
+                            <li class="font-light text-gray-600">Custom Dashboards</li>
+                            <li class="font-light text-gray-600">Database Hosting</li>
+                            <li class="font-light text-gray-600">Reporting Systems</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h5 class="text-xl font-serif font-semibold text-gray-900 mb-4">Visual Media</h5>
+                        <ul class="space-y-3">
+                            <li class="font-light text-gray-600">Trade Show Signage</li>
+                            <li class="font-light text-gray-600">Print Design</li>
+                            <li class="font-light text-gray-600">Presentation Design</li>
+                            <li class="font-light text-gray-600">Environmental Graphics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 pt-16 mt-16">
+                <div class="max-w-3xl">
+                    <h5 class="text-xl font-serif font-semibold text-gray-900 mb-4">Strategic Consulting</h5>
+                    <p class="text-lg font-light text-gray-600 leading-relaxed">
+                        Sometimes you need a strategic partner to help navigate complex business challenges. Our consulting services provide expert guidance on digital strategy, technology decisions, and growth planning tailored to your specific needs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="approach" class="py-32 bg-gray-50">
+    <div class="container mx-auto px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-24">
+                <h2 class="text-sm tracking-widest uppercase font-light text-gray-500 mb-4">Our Approach</h2>
+                <h3 class="text-5xl font-serif font-semibold text-gray-900 mb-8">How we work</h3>
+                <p class="text-xl font-light text-gray-600 leading-relaxed max-w-3xl">
+                    Every project is unique, but our process remains consistent: listen, strategize, create, refine, and deliver. We believe in collaboration, transparency, and results that exceed expectations.
+                </p>
+            </div>
+            
+            <div class="space-y-16">
+                <div class="grid md:grid-cols-12 gap-8 items-start">
+                    <div class="md:col-span-2">
+                        <span class="text-6xl font-serif font-light text-gray-300">01</span>
+                    </div>
+                    <div class="md:col-span-10">
+                        <h4 class="text-2xl font-serif font-semibold text-gray-900 mb-4">Discovery & Strategy</h4>
+                        <p class="text-lg font-light text-gray-600 leading-relaxed">
+                            We begin every engagement with deep discovery. Understanding your business, your customers, and your goals allows us to create solutions that are not just beautiful, but strategically sound. Through workshops, interviews, and research, we uncover the insights that will drive your project's success.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-12 gap-8 items-start">
+                    <div class="md:col-span-2">
+                        <span class="text-6xl font-serif font-light text-gray-300">02</span>
+                    </div>
+                    <div class="md:col-span-10">
+                        <h4 class="text-2xl font-serif font-semibold text-gray-900 mb-4">Design & Development</h4>
+                        <p class="text-lg font-light text-gray-600 leading-relaxed">
+                            With strategy in place, we move to execution. Our design process is iterative and collaborative, ensuring you're involved at every stage. We create prototypes, gather feedback, and refine until we've achieved something exceptional. Development follows the same meticulous approach, with clean code, performance optimization, and attention to every detail.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-12 gap-8 items-start">
+                    <div class="md:col-span-2">
+                        <span class="text-6xl font-serif font-light text-gray-300">03</span>
+                    </div>
+                    <div class="md:col-span-10">
+                        <h4 class="text-2xl font-serif font-semibold text-gray-900 mb-4">Launch & Growth</h4>
+                        <p class="text-lg font-light text-gray-600 leading-relaxed">
+                            Launch is just the beginning. We provide comprehensive training, documentation, and ongoing support to ensure you can make the most of your investment. As your business grows, we're here to help you scale, optimize, and evolve your digital presence to meet new challenges and opportunities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="values" class="py-32 bg-white">
+    <div class="container mx-auto px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-24 text-center">
+                <h2 class="text-5xl font-serif font-semibold text-gray-900 mb-8">Built on principle</h2>
+                <p class="text-xl font-light text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                    Our values guide every decision, every interaction, and every line of code we write.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-16">
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center border border-gray-300 rounded-full">
+                        <i class="fa-solid fa-compass text-2xl text-gray-900"></i>
+                    </div>
+                    <h4 class="text-xl font-serif font-semibold text-gray-900 mb-4">Clarity</h4>
+                    <p class="font-light text-gray-600 leading-relaxed">
+                        We believe in clear communication, transparent processes, and designs that speak for themselves. No jargon, no confusion—just honest, straightforward solutions.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center border border-gray-300 rounded-full">
+                        <i class="fa-solid fa-gem text-2xl text-gray-900"></i>
+                    </div>
+                    <h4 class="text-xl font-serif font-semibold text-gray-900 mb-4">Quality</h4>
+                    <p class="font-light text-gray-600 leading-relaxed">
+                        Excellence is not negotiable. From the first sketch to the final pixel, we maintain the highest standards in everything we create. Your success depends on it.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center border border-gray-300 rounded-full">
+                        <i class="fa-solid fa-handshake text-2xl text-gray-900"></i>
+                    </div>
+                    <h4 class="text-xl font-serif font-semibold text-gray-900 mb-4">Partnership</h4>
+                    <p class="font-light text-gray-600 leading-relaxed">
+                        We're not just vendors—we're partners in your success. Your goals become our goals, and we're committed to helping you achieve them, whatever it takes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="expertise" class="py-32 bg-gray-50">
+    <div class="container mx-auto px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-24 items-center">
+                <div>
+                    <h2 class="text-sm tracking-widest uppercase font-light text-gray-500 mb-4">Expertise</h2>
+                    <h3 class="text-5xl font-serif font-semibold text-gray-900 mb-8">Technology that works for you</h3>
+                    <p class="text-lg font-light text-gray-600 leading-relaxed mb-8">
+                        We stay at the forefront of technology not for its own sake, but to ensure our clients benefit from the most effective, reliable, and scalable solutions available.
+                    </p>
+                    <p class="text-lg font-light text-gray-600 leading-relaxed">
+                        Our technical expertise spans modern web frameworks, cloud infrastructure, data systems, and integration platforms. But more important than the tools we use is our ability to select the right technology for your specific needs and constraints.
+                    </p>
+                </div>
+                <div class="space-y-8">
+                    <div class="border-l-2 border-gray-300 pl-6">
+                        <h4 class="text-xl font-serif font-semibold text-gray-900 mb-2">Modern Web Stack</h4>
+                        <p class="font-light text-gray-600">React, Next.js, Tailwind CSS, Node.js, and more</p>
+                    </div>
+                    <div class="border-l-2 border-gray-300 pl-6">
+                        <h4 class="text-xl font-serif font-semibold text-gray-900 mb-2">Cloud Infrastructure</h4>
+                        <p class="font-light text-gray-600">AWS, Google Cloud, Azure, serverless architectures</p>
+                    </div>
+                    <div class="border-l-2 border-gray-300 pl-6">
+                        <h4 class="text-xl font-serif font-semibold text-gray-900 mb-2">Data & Analytics</h4>
+                        <p class="font-light text-gray-600">PostgreSQL, MongoDB, Redis, analytics platforms</p>
+                    </div>
+                    <div class="border-l-2 border-gray-300 pl-6">
+                        <h4 class="text-xl font-serif font-semibold text-gray-900 mb-2">Integration & APIs</h4>
+                        <p class="font-light text-gray-600">RESTful APIs, GraphQL, webhooks, third-party services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="industries" class="py-32 bg-white">
+    <div class="container mx-auto px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-24">
+                <h2 class="text-sm tracking-widest uppercase font-light text-gray-500 mb-4">Industries</h2>
+                <h3 class="text-5xl font-serif font-semibold text-gray-900 mb-8">Experience across sectors</h3>
+                <p class="text-xl font-light text-gray-600 leading-relaxed max-w-3xl">
+                    While our approach remains consistent, we understand that each industry has unique challenges, regulations, and customer expectations.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-x-24 gap-y-12">
+                <div>
+                    <h4 class="text-xl font-serif font-semibold text-gray-900 mb-3">Professional Services</h4>
+                    <p class="font-light text-gray-600 leading-relaxed">
+                        Law firms, consulting agencies, financial advisors, and other professional service providers looking to establish credibility and generate qualified leads.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-serif font-semibold text-gray-900 mb-3">Healthcare & Wellness</h4>
+                    <p class="font-light text-gray-600 leading-relaxed">
+                        Medical practices, dental offices, wellness centers, and healthcare technology companies requiring HIPAA-compliant solutions and patient-focused design.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-serif font-semibold text-gray-900 mb-3">Technology & SaaS</h4>
+                    <p class="font-light text-gray-600 leading-relaxed">
+                        Software companies, startups, and technology service providers needing to communicate complex value propositions clearly and convert visitors to users.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-serif font-semibold text-gray-900 mb-3">Real Estate & Property</h4>
+                    <p class="font-light text-gray-600 leading-relaxed">
+                        Real estate agencies, property management firms, and commercial developers seeking to showcase properties and streamline client interactions.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-serif font-semibold text-gray-900 mb-3">Manufacturing & Distribution</h4>
+                    <p class="font-light text-gray-600 leading-relaxed">
+                        B2B manufacturers, distributors, and industrial suppliers looking to modernize their digital presence and improve customer service efficiency.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-serif font-semibold text-gray-900 mb-3">Retail & E-commerce</h4>
+                    <p class="font-light text-gray-600 leading-relaxed">
+                        Online retailers, boutique shops, and direct-to-consumer brands requiring beautiful, conversion-optimized shopping experiences.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials" class="py-32 bg-gray-50">
+    <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-24 text-center">
+                <h2 class="text-sm tracking-widest uppercase font-light text-gray-500 mb-4">Testimonials</h2>
+                <h3 class="text-5xl font-serif font-semibold text-gray-900">What clients say</h3>
+            </div>
+            
+            <div class="space-y-16">
+                <div class="border-l-2 border-gray-300 pl-8">
+                    <p class="text-2xl font-light text-gray-900 leading-relaxed mb-6 italic">
+                        "Sogos transformed our entire digital presence. The attention to detail and strategic thinking they brought to our project was exceptional. Our website now truly represents our brand."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">Michael Chen</p>
+                            <p class="text-sm font-light text-gray-600">CEO, TechVision Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-l-2 border-gray-300 pl-8">
+                    <p class="text-2xl font-light text-gray-900 leading-relaxed mb-6 italic">
+                        "Working with Sogos was a revelation. They took time to understand our business and created automation systems that have saved us countless hours. The ROI has been remarkable."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">Sarah Williams</p>
+                            <p class="text-sm font-light text-gray-600">Operations Director, Horizon Healthcare</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-l-2 border-gray-300 pl-8">
+                    <p class="text-2xl font-light text-gray-900 leading-relaxed mb-6 italic">
+                        "The branding work Sogos did for us was transformative. They helped us articulate who we are and created a visual identity that resonates with our target market. Simply outstanding."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-8.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">David Park</p>
+                            <p class="text-sm font-light text-gray-600">Founder, Meridian Capital</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="process-detail" class="py-32 bg-white">
+    <div class="container mx-auto px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-24">
+                <h2 class="text-sm tracking-widest uppercase font-light text-gray-500 mb-4">The Details</h2>
+                <h3 class="text-5xl font-serif font-semibold text-gray-900 mb-8">What to expect</h3>
+                <p class="text-xl font-light text-gray-600 leading-relaxed max-w-3xl">
+                    Transparency is important to us. Here's a detailed look at what working with Sogos looks like from start to finish.
+                </p>
+            </div>
+            
+            <div class="space-y-12">
+                <div class="grid md:grid-cols-12 gap-8">
+                    <div class="md:col-span-3">
+                        <h4 class="text-lg font-serif font-semibold text-gray-900">Initial Consultation</h4>
+                        <p class="text-sm font-light text-gray-500 mt-2">Week 1</p>
+                    </div>
+                    <div class="md:col-span-9">
+                        <p class="font-light text-gray-600 leading-relaxed">
+                            We start with a comprehensive consultation to understand your business, goals, challenges, and vision. This conversation helps us determine if we're the right fit and allows us to begin forming a strategic approach. We'll discuss timelines, budget, and deliverables to ensure alignment from the start.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-12 gap-8">
+                    <div class="md:col-span-3">
+                        <h4 class="text-lg font-serif font-semibold text-gray-900">Research & Planning</h4>
+                        <p class="text-sm font-light text-gray-500 mt-2">Weeks 2-3</p>
+                    </div>
+                    <div class="md:col-span-9">
+                        <p class="font-light text-gray-600 leading-relaxed">
+                            Deep research into your industry, competitors, and target audience. We develop user personas, map customer journeys, and create a strategic roadmap. This phase includes stakeholder interviews, content audits, and technical assessments. We present our findings and recommendations in a comprehensive strategy document.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-12 gap-8">
+                    <div class="md:col-span-3">
+                        <h4 class="text-lg font-serif font-semibold text-gray-900">Design Phase</h4>
+                        <p class="text-sm font-light text-gray-500 mt-2">Weeks 4-6</p>
+                    </div>
+                    <div class="md:col-span-9">
+                        <p class="font-light text-gray-600 leading-relaxed">
+                            We create wireframes, mockups, and interactive prototypes. You'll see your project come to life through iterative design reviews. We refine based on your feedback until we achieve a design that exceeds expectations. All design assets are delivered in formats ready for development.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-12 gap-8">
+                    <div class="md:col-span-3">
+                        <h4 class="text-lg font-serif font-semibold text-gray-900">Development</h4>
+                        <p class="text-sm font-light text-gray-500 mt-2">Weeks 7-10</p>
+                    </div>
+                    <div class="md:col-span-9">
+                        <p class="font-light text-gray-600 leading-relaxed">
+                            Clean, efficient code that brings the design to life. We build with performance, security, and scalability in mind. Regular check-ins keep you informed of progress. We conduct thorough testing across devices and browsers to ensure a flawless experience for your users.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-12 gap-8">
+                    <div class="md:col-span-3">
+                        <h4 class="text-lg font-serif font-semibold text-gray-900">Launch & Training</h4>
+                        <p class="text-sm font-light text-gray-500 mt-2">Week 11</p>
+                    </div>
+                    <div class="md:col-span-9">
+                        <p class="font-light text-gray-600 leading-relaxed">
+                            We handle the technical details of launch, from domain configuration to deployment. Comprehensive training ensures your team can manage and update your new systems confidently. We provide detailed documentation and remain available for questions as you settle in.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-12 gap-8">
+                    <div class="md:col-span-3">
+                        <h4 class="text-lg font-serif font-semibold text-gray-900">Ongoing Support</h4>
+                        <p class="text-sm font-light text-gray-500 mt-2">Ongoing</p>
+                    </div>
+                    <div class="md:col-span-9">
+                        <p class="font-light text-gray-600 leading-relaxed">
+                            Our relationship doesn't end at launch. We offer maintenance packages, performance monitoring, and strategic consulting to help you continue growing. As your business evolves, we're here to help your digital presence evolve with it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="py-32 bg-gray-50">
+    <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl md:text-6xl font-serif font-semibold text-gray-900 mb-8">
+                Ready to start?
+            </h2>
+            <p class="text-xl font-light text-gray-600 leading-relaxed mb-16 max-w-2xl mx-auto">
+                Let's discuss your project and explore how Sogos can help your business grow. No pressure, no sales pitch—just an honest conversation about your goals.
+            </p>
+            <a href="contact-wizard.html" class="inline-block bg-gray-900 text-white px-16 py-5 text-sm tracking-widest uppercase font-light hover:bg-gray-800 transition-all duration-300">
+                Start a Project
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer id="footer" class="py-16 bg-white border-t border-gray-200">
+    <div class="container mx-auto px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <p class="text-sm font-light text-gray-600">
+                        © 2024 Sogos LLC. All rights reserved.
+                    </p>
+                </div>
+                <div>
+                    <a href="#contact" class="text-sm font-light text-gray-600 hover:text-gray-900 transition-colors duration-200">
+                        Ready to start? Let's talk.
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+let lastScroll = 0;
+const header = document.getElementById('header');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll <= 0) {
+        header.classList.remove('shadow-sm');
+        return;
+    }
+    
+    if (currentScroll > lastScroll && currentScroll > 100) {
+        header.style.transform = 'translateY(-100%)';
+    } else {
+        header.style.transform = 'translateY(0)';
+        header.classList.add('shadow-sm');
+    }
+    
+    lastScroll = currentScroll;
+});
+</script>
+
+</body>
+</html>

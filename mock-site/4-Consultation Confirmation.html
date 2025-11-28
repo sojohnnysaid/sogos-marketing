@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>::-webkit-scrollbar { display: none;}</style>
+</head>
+<body class="bg-white font-sans text-gray-900">
+
+<div id="back-link" class="absolute top-8 left-8 z-10">
+    <a href="index.html" class="text-sm font-light tracking-wide text-gray-600 hover:text-gray-900 transition-colors duration-200 flex items-center group">
+        <i class="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform duration-200"></i>
+        Back to Home
+    </a>
+</div>
+
+<main id="confirmation-main" class="min-h-screen flex items-center justify-center px-4 py-16">
+    <div class="max-w-4xl mx-auto text-center">
+        <div id="success-icon" class="mb-12 flex justify-center">
+            <div class="w-24 h-24 rounded-full border-2 border-gray-900 flex items-center justify-center">
+                <i class="fa-solid fa-check text-4xl text-gray-900"></i>
+            </div>
+        </div>
+
+        <div id="confirmation-content" class="space-y-8">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif font-semibold text-gray-900 leading-tight">
+                Thank you for<br/>reaching out.
+            </h1>
+
+            <div class="max-w-2xl mx-auto space-y-6">
+                <p class="text-xl md:text-2xl font-light text-gray-600 leading-relaxed">
+                    We've received your consultation request and appreciate your interest in working with Sogos.
+                </p>
+
+                <p class="text-lg font-light text-gray-600 leading-relaxed">
+                    Our team will carefully review your project details and goals. We'll reach out within 24-48 hours to schedule a conversation and discuss how we can help your business grow.
+                </p>
+            </div>
+        </div>
+
+        <div id="next-steps" class="mt-20 pt-16 border-t border-gray-200">
+            <h2 class="text-sm tracking-widest uppercase font-light text-gray-500 mb-8">What happens next</h2>
+            
+            <div class="grid md:grid-cols-3 gap-12 max-w-4xl mx-auto">
+                <div id="step-review" class="space-y-4">
+                    <div class="w-12 h-12 mx-auto flex items-center justify-center border border-gray-300 rounded-full">
+                        <i class="fa-solid fa-magnifying-glass text-xl text-gray-900"></i>
+                    </div>
+                    <h3 class="text-lg font-serif font-semibold text-gray-900">We Review</h3>
+                    <p class="font-light text-gray-600 leading-relaxed">
+                        Our team examines your request and prepares thoughtful questions to understand your needs better.
+                    </p>
+                </div>
+
+                <div id="step-connect" class="space-y-4">
+                    <div class="w-12 h-12 mx-auto flex items-center justify-center border border-gray-300 rounded-full">
+                        <i class="fa-solid fa-phone text-xl text-gray-900"></i>
+                    </div>
+                    <h3 class="text-lg font-serif font-semibold text-gray-900">We Connect</h3>
+                    <p class="font-light text-gray-600 leading-relaxed">
+                        A member of our team will reach out to schedule a consultation at a time that works for you.
+                    </p>
+                </div>
+
+                <div id="step-plan" class="space-y-4">
+                    <div class="w-12 h-12 mx-auto flex items-center justify-center border border-gray-300 rounded-full">
+                        <i class="fa-solid fa-lightbulb text-xl text-gray-900"></i>
+                    </div>
+                    <h3 class="text-lg font-serif font-semibold text-gray-900">We Plan</h3>
+                    <p class="font-light text-gray-600 leading-relaxed">
+                        Together, we'll explore your vision and develop a strategic approach tailored to your goals.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="meanwhile-section" class="mt-20 pt-16 border-t border-gray-200">
+            <h2 class="text-sm tracking-widest uppercase font-light text-gray-500 mb-8">In the meantime</h2>
+            
+            <div class="max-w-2xl mx-auto space-y-6 mb-12">
+                <p class="text-lg font-light text-gray-600 leading-relaxed">
+                    While you wait, feel free to explore our work, learn more about our approach, or review the services we offer. If you have any immediate questions, don't hesitate to reach out directly.
+                </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="index.html#services" class="inline-block border border-gray-900 px-10 py-4 text-sm tracking-widest uppercase font-light hover:bg-gray-900 hover:text-white transition-all duration-300">
+                    Explore Services
+                </a>
+                <a href="index.html#approach" class="inline-block border border-gray-300 px-10 py-4 text-sm tracking-widest uppercase font-light hover:border-gray-900 transition-all duration-300">
+                    Our Approach
+                </a>
+            </div>
+        </div>
+
+        <div id="reference-section" class="mt-20 pt-16 border-t border-gray-200">
+            <h2 class="text-sm tracking-widest uppercase font-light text-gray-500 mb-8">Your reference information</h2>
+            
+            <div class="max-w-xl mx-auto bg-gray-50 border border-gray-200 rounded-sm p-8">
+                <div class="space-y-4 text-left">
+                    <div class="flex justify-between items-start">
+                        <span class="text-sm font-light text-gray-500 uppercase tracking-wide">Submission Date</span>
+                        <span class="font-light text-gray-900" id="submission-date"></span>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <span class="text-sm font-light text-gray-500 uppercase tracking-wide">Reference ID</span>
+                        <span class="font-mono text-sm text-gray-900" id="reference-id"></span>
+                    </div>
+                    <div class="pt-4 border-t border-gray-200">
+                        <p class="text-sm font-light text-gray-600 leading-relaxed">
+                            Please save this reference number for your records. You can use it when following up with our team.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact-info-section" class="mt-20 pt-16 border-t border-gray-200">
+            <h2 class="text-sm tracking-widest uppercase font-light text-gray-500 mb-8">Need immediate assistance?</h2>
+            
+            <div class="max-w-2xl mx-auto space-y-6">
+                <p class="text-lg font-light text-gray-600 leading-relaxed">
+                    If your project is time-sensitive or you have urgent questions, you can reach us directly through the following channels:
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 mt-8">
+                    <div id="email-contact" class="space-y-2">
+                        <div class="flex items-center justify-center md:justify-start">
+                            <i class="fa-solid fa-envelope text-gray-900 mr-3"></i>
+                            <span class="text-sm font-light text-gray-500 uppercase tracking-wide">Email</span>
+                        </div>
+                        <a href="mailto:hello@sogos.com" class="block text-lg text-gray-900 hover:text-gray-600 transition-colors duration-200">
+                            hello@sogos.com
+                        </a>
+                    </div>
+
+                    <div id="phone-contact" class="space-y-2">
+                        <div class="flex items-center justify-center md:justify-start">
+                            <i class="fa-solid fa-phone text-gray-900 mr-3"></i>
+                            <span class="text-sm font-light text-gray-500 uppercase tracking-wide">Phone</span>
+                        </div>
+                        <a href="tel:+15551234567" class="block text-lg text-gray-900 hover:text-gray-600 transition-colors duration-200">
+                            (555) 123-4567
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="expectations-section" class="mt-20 pt-16 border-t border-gray-200">
+            <h2 class="text-sm tracking-widest uppercase font-light text-gray-500 mb-8">What to prepare</h2>
+            
+            <div class="max-w-2xl mx-auto text-left space-y-6">
+                <p class="text-lg font-light text-gray-600 leading-relaxed mb-8">
+                    To make our initial conversation as productive as possible, consider preparing thoughts on the following:
+                </p>
+
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <span class="text-xs text-gray-600">1</span>
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-semibold text-gray-900 mb-2">Your Primary Goals</h4>
+                            <p class="font-light text-gray-600 leading-relaxed">
+                                What specific outcomes are you hoping to achieve? Whether it's increased leads, improved efficiency, or brand recognition, clarity on goals helps us serve you better.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <span class="text-xs text-gray-600">2</span>
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-semibold text-gray-900 mb-2">Current Challenges</h4>
+                            <p class="font-light text-gray-600 leading-relaxed">
+                                What problems are you facing that prompted you to reach out? Understanding your pain points allows us to focus on solutions that matter most.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <span class="text-xs text-gray-600">3</span>
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-semibold text-gray-900 mb-2">Timeline Expectations</h4>
+                            <p class="font-light text-gray-600 leading-relaxed">
+                                Do you have any deadlines or target launch dates? Knowing your timeline helps us structure our approach appropriately.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <span class="text-xs text-gray-600">4</span>
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-semibold text-gray-900 mb-2">Budget Considerations</h4>
+                            <p class="font-light text-gray-600 leading-relaxed">
+                                While we'll discuss specific numbers during our call, having a general budget range in mind ensures we recommend solutions that fit your constraints.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <span class="text-xs text-gray-600">5</span>
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-semibold text-gray-900 mb-2">Inspiration & Examples</h4>
+                            <p class="font-light text-gray-600 leading-relaxed">
+                                If you've seen websites, designs, or systems you admire, share them with us. They provide valuable insight into your aesthetic preferences and functional needs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="faq-section" class="mt-20 pt-16 border-t border-gray-200">
+            <h2 class="text-sm tracking-widest uppercase font-light text-gray-500 mb-8">Common questions</h2>
+            
+            <div class="max-w-2xl mx-auto text-left space-y-8">
+                <div>
+                    <h4 class="text-lg font-serif font-semibold text-gray-900 mb-3">How long until I hear from someone?</h4>
+                    <p class="font-light text-gray-600 leading-relaxed">
+                        We typically respond within 24-48 hours during business days. If your request comes in over the weekend, we'll reach out first thing Monday morning.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-serif font-semibold text-gray-900 mb-3">Is there any obligation after the consultation?</h4>
+                    <p class="font-light text-gray-600 leading-relaxed">
+                        Absolutely not. Our initial consultation is a no-pressure conversation to understand your needs and determine if we're a good fit. You're under no obligation to move forward.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-serif font-semibold text-gray-900 mb-3">What if I need to update my request?</h4>
+                    <p class="font-light text-gray-600 leading-relaxed">
+                        If your needs change or you'd like to add information before we connect, simply reply to the confirmation email you received, or reach out directly using the contact information above.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-serif font-semibold text-gray-900 mb-3">Can I schedule the consultation for a specific time?</h4>
+                    <p class="font-light text-gray-600 leading-relaxed">
+                        Yes. When we reach out, we'll work with you to find a time that fits your schedule. We're flexible and accommodate various time zones and availability constraints.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-serif font-semibold text-gray-900 mb-3">Do you work with businesses outside your typical industries?</h4>
+                    <p class="font-light text-gray-600 leading-relaxed">
+                        While we have deep experience in certain sectors, we work with businesses across many industries. If you have a unique challenge, we'd love to discuss it.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="testimonial-section" class="mt-20 pt-16 border-t border-gray-200">
+            <h2 class="text-sm tracking-widest uppercase font-light text-gray-500 mb-8">From past clients</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="border-l-2 border-gray-300 pl-8">
+                    <p class="text-xl md:text-2xl font-light text-gray-900 leading-relaxed mb-6 italic">
+                        "From our very first conversation, the Sogos team demonstrated genuine interest in understanding our business. They asked thoughtful questions and took time to really listen. The result was a solution that exceeded our expectations."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-6.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">Jennifer Martinez</p>
+                            <p class="text-sm font-light text-gray-600">Director of Marketing, Apex Solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="resources-section" class="mt-20 pt-16 border-t border-gray-200">
+            <h2 class="text-sm tracking-widest uppercase font-light text-gray-500 mb-8">Helpful resources</h2>
+            
+            <div class="max-w-2xl mx-auto">
+                <p class="text-lg font-light text-gray-600 leading-relaxed mb-8">
+                    While you wait to hear from us, these resources might help you think through your project:
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <a href="index.html#services" class="block p-6 border border-gray-200 hover:border-gray-900 transition-all duration-300 group">
+                        <div class="flex items-start justify-between mb-3">
+                            <h4 class="font-serif font-semibold text-gray-900 group-hover:text-gray-600 transition-colors">Services Overview</h4>
+                            <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                        <p class="text-sm font-light text-gray-600 leading-relaxed">
+                            Explore the full range of services we offer and how they might fit your needs.
+                        </p>
+                    </a>
+
+                    <a href="index.html#approach" class="block p-6 border border-gray-200 hover:border-gray-900 transition-all duration-300 group">
+                        <div class="flex items-start justify-between mb-3">
+                            <h4 class="font-serif font-semibold text-gray-900 group-hover:text-gray-600 transition-colors">Our Approach</h4>
+                            <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                        <p class="text-sm font-light text-gray-600 leading-relaxed">
+                            Learn about our process and what working with Sogos looks like.
+                        </p>
+                    </a>
+
+                    <a href="index.html#process-detail" class="block p-6 border border-gray-200 hover:border-gray-900 transition-all duration-300 group">
+                        <div class="flex items-start justify-between mb-3">
+                            <h4 class="font-serif font-semibold text-gray-900 group-hover:text-gray-600 transition-colors">Project Timeline</h4>
+                            <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                        <p class="text-sm font-light text-gray-600 leading-relaxed">
+                            Understand what to expect at each stage of a typical engagement.
+                        </p>
+                    </a>
+
+                    <a href="index.html#testimonials" class="block p-6 border border-gray-200 hover:border-gray-900 transition-all duration-300 group">
+                        <div class="flex items-start justify-between mb-3">
+                            <h4 class="font-serif font-semibold text-gray-900 group-hover:text-gray-600 transition-colors">Client Stories</h4>
+                            <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                        <p class="text-sm font-light text-gray-600 leading-relaxed">
+                            Read about other businesses we've helped and the results they achieved.
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="final-message" class="mt-20 pt-16 border-t border-gray-200">
+            <div class="max-w-2xl mx-auto text-center">
+                <p class="text-xl font-light text-gray-600 leading-relaxed mb-8">
+                    We're genuinely excited to learn more about your project and explore how we might work together. Thank you for considering Sogos.
+                </p>
+                <p class="text-lg font-serif text-gray-900">
+                    Talk soon.
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer id="footer" class="py-16 bg-white border-t border-gray-200 mt-20">
+    <div class="container mx-auto px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <p class="text-sm font-light text-gray-600">
+                        © 2024 Sogos LLC. All rights reserved.
+                    </p>
+                </div>
+                <div>
+                    <a href="index.html" class="text-sm font-light text-gray-600 hover:text-gray-900 transition-colors duration-200">
+                        Return to homepage
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+window.addEventListener('load', function() {
+    const today = new Date();
+    const dateString = today.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+    document.getElementById('submission-date').textContent = dateString;
+    
+    const referenceId = 'SOG-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).substr(2, 4).toUpperCase();
+    document.getElementById('reference-id').textContent = referenceId;
+});
+</script>
+
+</body>
+</html>

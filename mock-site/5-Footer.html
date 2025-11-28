@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>::-webkit-scrollbar { display: none;}</style>
+</head>
+<body class="bg-white font-sans text-gray-900">
+
+<section id="wizard-step-1" class="min-h-screen flex items-center justify-center py-20 px-4 relative">
+    <div class="absolute top-8 left-8">
+        <a href="index.html" class="text-sm font-light text-gray-500 hover:text-gray-900 transition-colors duration-200 flex items-center">
+            <i class="fa-solid fa-arrow-left mr-2"></i>
+            Back to Home
+        </a>
+    </div>
+    
+    <div class="max-w-4xl w-full mx-auto text-center">
+        <div class="mb-12">
+            <div class="flex justify-center items-center space-x-3 mb-8">
+                <div class="w-12 h-1 bg-gray-900 rounded-full"></div>
+                <div class="w-12 h-1 bg-gray-200 rounded-full"></div>
+            </div>
+            <p class="text-sm tracking-widest uppercase font-light text-gray-500 mb-4">Step 1 of 2</p>
+        </div>
+        
+        <h1 class="text-5xl md:text-6xl font-serif font-semibold text-gray-900 mb-12 leading-tight">
+            How can Sogos<br/>help you?
+        </h1>
+        
+        <p class="text-xl font-light text-gray-600 mb-16 max-w-2xl mx-auto leading-relaxed">
+            Select the area where you need support, and we'll guide you through the next steps.
+        </p>
+        
+        <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <button onclick="selectOption('branding')" class="wizard-option group border-2 border-gray-200 hover:border-gray-900 rounded-lg p-8 text-left transition-all duration-300 hover:shadow-lg">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-14 h-14 flex items-center justify-center border border-gray-300 rounded-full group-hover:border-gray-900 transition-colors duration-300">
+                        <i class="fa-solid fa-palette text-2xl text-gray-600 group-hover:text-gray-900"></i>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-gray-900 transition-colors duration-300"></i>
+                </div>
+                <h3 class="text-2xl font-serif font-semibold text-gray-900 mb-3">Brand & Website</h3>
+                <p class="font-light text-gray-600 leading-relaxed">
+                    I need a new brand identity or website that represents my business professionally.
+                </p>
+            </button>
+            
+            <button onclick="selectOption('automation')" class="wizard-option group border-2 border-gray-200 hover:border-gray-900 rounded-lg p-8 text-left transition-all duration-300 hover:shadow-lg">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-14 h-14 flex items-center justify-center border border-gray-300 rounded-full group-hover:border-gray-900 transition-colors duration-300">
+                        <i class="fa-solid fa-gears text-2xl text-gray-600 group-hover:text-gray-900"></i>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-gray-900 transition-colors duration-300"></i>
+                </div>
+                <h3 class="text-2xl font-serif font-semibold text-gray-900 mb-3">Workflow Automation</h3>
+                <p class="font-light text-gray-600 leading-relaxed">
+                    I need to automate repetitive tasks and streamline my business operations.
+                </p>
+            </button>
+            
+            <button onclick="selectOption('data')" class="wizard-option group border-2 border-gray-200 hover:border-gray-900 rounded-lg p-8 text-left transition-all duration-300 hover:shadow-lg">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-14 h-14 flex items-center justify-center border border-gray-300 rounded-full group-hover:border-gray-900 transition-colors duration-300">
+                        <i class="fa-solid fa-chart-line text-2xl text-gray-600 group-hover:text-gray-900"></i>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-gray-900 transition-colors duration-300"></i>
+                </div>
+                <h3 class="text-2xl font-serif font-semibold text-gray-900 mb-3">Data & Insights</h3>
+                <p class="font-light text-gray-600 leading-relaxed">
+                    I need analytics, dashboards, or data systems to make better decisions.
+                </p>
+            </button>
+            
+            <button onclick="selectOption('consulting')" class="wizard-option group border-2 border-gray-200 hover:border-gray-900 rounded-lg p-8 text-left transition-all duration-300 hover:shadow-lg">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-14 h-14 flex items-center justify-center border border-gray-300 rounded-full group-hover:border-gray-900 transition-colors duration-300">
+                        <i class="fa-solid fa-lightbulb text-2xl text-gray-600 group-hover:text-gray-900"></i>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-gray-900 transition-colors duration-300"></i>
+                </div>
+                <h3 class="text-2xl font-serif font-semibold text-gray-900 mb-3">Strategic Consulting</h3>
+                <p class="font-light text-gray-600 leading-relaxed">
+                    I need expert guidance on digital strategy and growth planning.
+                </p>
+            </button>
+        </div>
+        
+        <div class="mt-16">
+            <p class="text-sm font-light text-gray-500">
+                Not sure which option fits best? <a href="mailto:hello@sogos.com" class="text-gray-900 hover:underline">Contact us directly</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="wizard-step-2" class="min-h-screen flex items-center justify-center py-20 px-4 relative hidden">
+    <div class="absolute top-8 left-8">
+        <button onclick="goBackToStep1()" class="text-sm font-light text-gray-500 hover:text-gray-900 transition-colors duration-200 flex items-center">
+            <i class="fa-solid fa-arrow-left mr-2"></i>
+            Back
+        </button>
+    </div>
+    
+    <div class="max-w-2xl w-full mx-auto">
+        <div class="mb-12 text-center">
+            <div class="flex justify-center items-center space-x-3 mb-8">
+                <div class="w-12 h-1 bg-gray-900 rounded-full"></div>
+                <div class="w-12 h-1 bg-gray-900 rounded-full"></div>
+            </div>
+            <p class="text-sm tracking-widest uppercase font-light text-gray-500 mb-4">Step 2 of 2</p>
+        </div>
+        
+        <div class="text-center mb-12">
+            <h2 id="step2-headline" class="text-5xl md:text-6xl font-serif font-semibold text-gray-900 mb-8 leading-tight">
+                Let's build your<br/>Digital Presence
+            </h2>
+            <p class="text-lg font-light text-gray-600 leading-relaxed">
+                Share a few details about your project, and we'll be in touch within 24 hours.
+            </p>
+        </div>
+        
+        <form id="contact-form" class="space-y-8">
+            <div class="space-y-2">
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    placeholder="Your Name" 
+                    required
+                    class="w-full bg-transparent border-b-2 border-gray-300 focus:border-gray-900 outline-none py-4 text-lg font-light text-gray-900 placeholder-gray-400 transition-colors duration-300"
+                />
+            </div>
+            
+            <div class="space-y-2">
+                <input 
+                    type="text" 
+                    id="company" 
+                    name="company" 
+                    placeholder="Company Name" 
+                    required
+                    class="w-full bg-transparent border-b-2 border-gray-300 focus:border-gray-900 outline-none py-4 text-lg font-light text-gray-900 placeholder-gray-400 transition-colors duration-300"
+                />
+            </div>
+            
+            <div class="space-y-2">
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="Email Address" 
+                    required
+                    class="w-full bg-transparent border-b-2 border-gray-300 focus:border-gray-900 outline-none py-4 text-lg font-light text-gray-900 placeholder-gray-400 transition-colors duration-300"
+                />
+            </div>
+            
+            <div class="space-y-2">
+                <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    placeholder="Phone Number" 
+                    class="w-full bg-transparent border-b-2 border-gray-300 focus:border-gray-900 outline-none py-4 text-lg font-light text-gray-900 placeholder-gray-400 transition-colors duration-300"
+                />
+            </div>
+            
+            <div class="space-y-2">
+                <textarea 
+                    id="message" 
+                    name="message" 
+                    rows="4" 
+                    placeholder="Tell us about your project (optional)"
+                    class="w-full bg-transparent border-b-2 border-gray-300 focus:border-gray-900 outline-none py-4 text-lg font-light text-gray-900 placeholder-gray-400 transition-colors duration-300 resize-none"
+                ></textarea>
+            </div>
+            
+            <div class="pt-8">
+                <button 
+                    type="submit"
+                    class="w-full bg-gray-900 text-white py-5 text-sm tracking-widest uppercase font-light hover:bg-gray-800 transition-all duration-300"
+                >
+                    Request Consultation
+                </button>
+                <p class="text-center text-sm font-light text-gray-500 mt-6 leading-relaxed">
+                    The Sogos team will review your goals and contact you shortly.
+                </p>
+            </div>
+        </form>
+    </div>
+</section>
+
+<section id="wizard-success" class="min-h-screen flex items-center justify-center py-20 px-4 hidden">
+    <div class="max-w-2xl w-full mx-auto text-center">
+        <div class="mb-12">
+            <div class="w-24 h-24 mx-auto mb-8 flex items-center justify-center border-2 border-gray-900 rounded-full">
+                <i class="fa-solid fa-check text-4xl text-gray-900"></i>
+            </div>
+        </div>
+        
+        <h2 class="text-5xl md:text-6xl font-serif font-semibold text-gray-900 mb-8 leading-tight">
+            Thank you
+        </h2>
+        
+        <p class="text-xl font-light text-gray-600 mb-12 leading-relaxed max-w-xl mx-auto">
+            We've received your request and will be in touch within 24 hours to discuss your project in detail.
+        </p>
+        
+        <div class="space-y-4">
+            <a href="index.html" class="inline-block bg-gray-900 text-white px-12 py-4 text-sm tracking-widest uppercase font-light hover:bg-gray-800 transition-all duration-300">
+                Return to Home
+            </a>
+        </div>
+        
+        <div class="mt-16 pt-16 border-t border-gray-200">
+            <p class="text-sm font-light text-gray-500 mb-4">In the meantime</p>
+            <div class="flex justify-center space-x-8">
+                <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors duration-200">
+                    <i class="fa-brands fa-linkedin text-2xl"></i>
+                </a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors duration-200">
+                    <i class="fa-brands fa-twitter text-2xl"></i>
+                </a>
+                <a href="mailto:hello@sogos.com" class="text-gray-600 hover:text-gray-900 transition-colors duration-200">
+                    <i class="fa-solid fa-envelope text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer" class="py-16 bg-white border-t border-gray-200">
+    <div class="container mx-auto px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <p class="text-sm font-light text-gray-600">
+                        © 2024 Sogos LLC. All rights reserved.
+                    </p>
+                </div>
+                <div>
+                    <a href="index.html" class="text-sm font-light text-gray-600 hover:text-gray-900 transition-colors duration-200">
+                        Ready to start? Let's talk.
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+const headlines = {
+    'branding': "Let's build your<br/>Digital Presence",
+    'automation': "Let's automate<br/>your workflow",
+    'data': "Let's unlock<br/>your data insights",
+    'consulting': "Let's develop<br/>your strategy"
+};
+
+let selectedOption = '';
+
+function selectOption(option) {
+    selectedOption = option;
+    
+    const step1 = document.getElementById('wizard-step-1');
+    const step2 = document.getElementById('wizard-step-2');
+    const headline = document.getElementById('step2-headline');
+    
+    headline.innerHTML = headlines[option];
+    
+    step1.classList.add('hidden');
+    step2.classList.remove('hidden');
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goBackToStep1() {
+    const step1 = document.getElementById('wizard-step-1');
+    const step2 = document.getElementById('wizard-step-2');
+    
+    step2.classList.add('hidden');
+    step1.classList.remove('hidden');
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const step2 = document.getElementById('wizard-step-2');
+    const success = document.getElementById('wizard-success');
+    
+    step2.classList.add('hidden');
+    success.classList.remove('hidden');
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>
