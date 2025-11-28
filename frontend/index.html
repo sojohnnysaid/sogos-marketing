@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sogos - Digital Growth Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        'aqua': '#26c6be',
+                        'deep-teal': '#145f5b',
+                        'mist': '#f4f7f7'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+    <style>
+        ::-webkit-scrollbar { display: none; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-white font-sans text-gray-900">
+
+<!-- Main Site -->
+<div id="main-site">
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md transition-all duration-300">
+        <nav class="container mx-auto px-6 md:px-8 py-5 md:py-6">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-xl md:text-2xl font-serif font-semibold tracking-tight text-gray-900">Sogos</a>
+                <div class="hidden md:flex items-center space-x-12">
+                    <a href="#services" class="text-sm font-light tracking-wide text-gray-600 hover:text-gray-900 transition-colors">Services</a>
+                    <a href="#approach" class="text-sm font-light tracking-wide text-gray-600 hover:text-gray-900 transition-colors">Approach</a>
+                    <button onclick="showContactWizard()" class="text-sm font-light tracking-wide text-gray-600 hover:text-gray-900 transition-colors">Contact</button>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-900 p-2" aria-label="Menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="container mx-auto px-6 py-6 space-y-4">
+                <a href="#services" class="block text-base font-light text-gray-600 hover:text-gray-900 transition-colors">Services</a>
+                <a href="#approach" class="block text-base font-light text-gray-600 hover:text-gray-900 transition-colors">Approach</a>
+                <button onclick="showContactWizard()" class="block text-base font-light text-gray-600 hover:text-gray-900 transition-colors text-left w-full">Contact</button>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero" class="relative min-h-screen flex items-center justify-center bg-white pt-20">
+        <div class="container mx-auto px-6 md:px-8 text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif font-semibold text-gray-900 mb-6 md:mb-8 leading-tight tracking-tight">
+                Sogos helps<br/>businesses grow.
+            </h1>
+            <p class="text-lg md:text-xl lg:text-2xl font-light text-gray-600 mb-10 md:mb-16 max-w-3xl mx-auto leading-relaxed">
+                Digital presence, branding, and automation strategies for the modern enterprise.
+            </p>
+            <button onclick="showContactWizard()" class="inline-block bg-aqua text-white px-8 md:px-12 py-4 text-sm tracking-widest uppercase font-light hover:bg-deep-teal transition-all duration-300">
+                Start a Project
+            </button>
+        </div>
+    </section>
+
+    <section id="philosophy" class="py-16 md:py-32 bg-mist">
+        <div class="container mx-auto px-6 md:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-gray-900 mb-8 md:mb-12">
+                    Strategic Growth Through Design
+                </h2>
+                <p class="text-lg font-light text-gray-600 leading-relaxed mb-8">
+                    In today's competitive landscape, your business needs more than just a presence—it needs a strategic advantage. Sogos combines thoughtful design, technical excellence, and business intelligence to create solutions that don't just look good, but drive measurable results.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-16 md:py-32 bg-white">
+        <div class="container mx-auto px-6 md:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-12 md:mb-24">
+                    <h2 class="text-sm tracking-widest uppercase font-light text-deep-teal mb-4">Our Services</h2>
+                    <h3 class="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-gray-900">What we do best</h3>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 lg:gap-24 mb-16">
+                    <div>
+                        <h4 class="text-2xl md:text-3xl font-serif font-semibold text-gray-900 mb-4">Branding</h4>
+                        <p class="text-lg font-light text-gray-600 leading-relaxed mb-6">
+                            Your brand is more than a logo—it's the complete expression of your business values.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start"><span class="text-deep-teal mr-3">—</span><span class="font-light text-gray-600">Brand Identity Development</span></li>
+                            <li class="flex items-start"><span class="text-deep-teal mr-3">—</span><span class="font-light text-gray-600">Visual Design Systems</span></li>
+                            <li class="flex items-start"><span class="text-deep-teal mr-3">—</span><span class="font-light text-gray-600">Marketing Collateral</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl md:text-3xl font-serif font-semibold text-gray-900 mb-4">Digital Presence</h4>
+                        <p class="text-lg font-light text-gray-600 leading-relaxed mb-6">
+                            Build a digital foundation that works as hard as you do.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start"><span class="text-deep-teal mr-3">—</span><span class="font-light text-gray-600">Website Design & Development</span></li>
+                            <li class="flex items-start"><span class="text-deep-teal mr-3">—</span><span class="font-light text-gray-600">Managed Hosting Solutions</span></li>
+                            <li class="flex items-start"><span class="text-deep-teal mr-3">—</span><span class="font-light text-gray-600">Search Engine Optimization</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-200 pt-12">
+                    <div class="grid md:grid-cols-3 gap-12">
+                        <div>
+                            <h5 class="text-xl font-serif font-semibold text-gray-900 mb-4">Automation</h5>
+                            <ul class="space-y-2 font-light text-gray-600">
+                                <li>Custom Software Solutions</li>
+                                <li>Workflow Automation</li>
+                                <li>Notification Systems</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="text-xl font-serif font-semibold text-gray-900 mb-4">Data & Insights</h5>
+                            <ul class="space-y-2 font-light text-gray-600">
+                                <li>Analytics Implementation</li>
+                                <li>Custom Dashboards</li>
+                                <li>Reporting Systems</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="text-xl font-serif font-semibold text-gray-900 mb-4">Visual Media</h5>
+                            <ul class="space-y-2 font-light text-gray-600">
+                                <li>Trade Show Signage</li>
+                                <li>Print Design</li>
+                                <li>Presentation Design</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="approach" class="py-16 md:py-32 bg-mist">
+        <div class="container mx-auto px-6 md:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-12 md:mb-24">
+                    <h2 class="text-sm tracking-widest uppercase font-light text-deep-teal mb-4">Our Approach</h2>
+                    <h3 class="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-gray-900 mb-6">How we work</h3>
+                </div>
+
+                <div class="space-y-12">
+                    <div class="grid md:grid-cols-12 gap-6 items-start">
+                        <div class="md:col-span-2">
+                            <span class="text-5xl md:text-6xl font-serif font-light text-aqua/40">01</span>
+                        </div>
+                        <div class="md:col-span-10">
+                            <h4 class="text-xl md:text-2xl font-serif font-semibold text-gray-900 mb-4">Discovery & Strategy</h4>
+                            <p class="text-lg font-light text-gray-600 leading-relaxed">
+                                We begin every engagement with deep discovery. Understanding your business, your customers, and your goals allows us to create solutions that are strategically sound.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-12 gap-6 items-start">
+                        <div class="md:col-span-2">
+                            <span class="text-5xl md:text-6xl font-serif font-light text-aqua/40">02</span>
+                        </div>
+                        <div class="md:col-span-10">
+                            <h4 class="text-xl md:text-2xl font-serif font-semibold text-gray-900 mb-4">Design & Development</h4>
+                            <p class="text-lg font-light text-gray-600 leading-relaxed">
+                                Our design process is iterative and collaborative, ensuring you're involved at every stage.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-12 gap-6 items-start">
+                        <div class="md:col-span-2">
+                            <span class="text-5xl md:text-6xl font-serif font-light text-aqua/40">03</span>
+                        </div>
+                        <div class="md:col-span-10">
+                            <h4 class="text-xl md:text-2xl font-serif font-semibold text-gray-900 mb-4">Launch & Growth</h4>
+                            <p class="text-lg font-light text-gray-600 leading-relaxed">
+                                Launch is just the beginning. We provide comprehensive training and ongoing support.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="py-16 md:py-32 bg-white">
+        <div class="container mx-auto px-6 md:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-gray-900 mb-6 md:mb-8">
+                    Ready to start?
+                </h2>
+                <p class="text-lg md:text-xl font-light text-gray-600 leading-relaxed mb-10 md:mb-16 max-w-2xl mx-auto">
+                    Let's discuss your project and explore how Sogos can help your business grow.
+                </p>
+                <button onclick="showContactWizard()" class="inline-block bg-aqua text-white px-10 md:px-16 py-4 md:py-5 text-sm tracking-widest uppercase font-light hover:bg-deep-teal transition-all duration-300">
+                    Start a Project
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 md:py-16 bg-mist border-t border-gray-200">
+        <div class="container mx-auto px-6 md:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm font-light text-gray-600 mb-6 md:mb-0">&copy; 2024 Sogos LLC. All rights reserved.</p>
+                    <div class="flex items-center space-x-6">
+                        <a href="#services" class="text-sm font-light text-gray-600 hover:text-gray-900 transition-colors">Services</a>
+                        <a href="#approach" class="text-sm font-light text-gray-600 hover:text-gray-900 transition-colors">Approach</a>
+                        <button onclick="showContactWizard()" class="text-sm font-light text-gray-600 hover:text-gray-900 transition-colors">Contact</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- Contact Wizard Overlay -->
+<div id="contact-wizard" class="fixed inset-0 z-50 bg-white hidden overflow-y-auto">
+    <!-- Step 1: Service Selection -->
+    <div id="wizard-step-1" class="min-h-screen flex items-center justify-center py-16 px-6">
+        <div class="absolute top-6 left-6">
+            <button onclick="hideContactWizard()" class="text-sm font-light text-gray-500 hover:text-gray-900 transition-colors flex items-center">
+                <i class="fa-solid fa-arrow-left mr-2"></i>
+                Back to Home
+            </button>
+        </div>
+
+        <div class="max-w-4xl w-full mx-auto text-center">
+            <div class="mb-8">
+                <div class="flex justify-center items-center space-x-3 mb-6">
+                    <div class="w-10 h-1 bg-gray-900 rounded-full"></div>
+                    <div class="w-10 h-1 bg-gray-200 rounded-full"></div>
+                </div>
+                <p class="text-sm tracking-widest uppercase font-light text-gray-500">Step 1 of 2</p>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold text-gray-900 mb-8 leading-tight">
+                How can Sogos<br/>help you?
+            </h1>
+
+            <p class="text-lg font-light text-gray-600 mb-12 max-w-2xl mx-auto">
+                Select the area where you need support.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                <button onclick="selectService('Brand & Website')" class="group border-2 border-gray-200 hover:border-gray-900 rounded-lg p-6 md:p-8 text-left transition-all duration-300">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 flex items-center justify-center border border-gray-300 rounded-full group-hover:border-gray-900 transition-colors">
+                            <i class="fa-solid fa-palette text-xl text-gray-600 group-hover:text-gray-900"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-gray-900 transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-semibold text-gray-900 mb-2">Brand & Website</h3>
+                    <p class="font-light text-gray-600 text-sm">New brand identity or website that represents your business.</p>
+                </button>
+
+                <button onclick="selectService('Workflow Automation')" class="group border-2 border-gray-200 hover:border-gray-900 rounded-lg p-6 md:p-8 text-left transition-all duration-300">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 flex items-center justify-center border border-gray-300 rounded-full group-hover:border-gray-900 transition-colors">
+                            <i class="fa-solid fa-gears text-xl text-gray-600 group-hover:text-gray-900"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-gray-900 transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-semibold text-gray-900 mb-2">Workflow Automation</h3>
+                    <p class="font-light text-gray-600 text-sm">Automate repetitive tasks and streamline operations.</p>
+                </button>
+
+                <button onclick="selectService('Data & Insights')" class="group border-2 border-gray-200 hover:border-gray-900 rounded-lg p-6 md:p-8 text-left transition-all duration-300">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 flex items-center justify-center border border-gray-300 rounded-full group-hover:border-gray-900 transition-colors">
+                            <i class="fa-solid fa-chart-line text-xl text-gray-600 group-hover:text-gray-900"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-gray-900 transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-semibold text-gray-900 mb-2">Data & Insights</h3>
+                    <p class="font-light text-gray-600 text-sm">Analytics, dashboards, or data systems for better decisions.</p>
+                </button>
+
+                <button onclick="selectService('Strategic Consulting')" class="group border-2 border-gray-200 hover:border-gray-900 rounded-lg p-6 md:p-8 text-left transition-all duration-300">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 flex items-center justify-center border border-gray-300 rounded-full group-hover:border-gray-900 transition-colors">
+                            <i class="fa-solid fa-lightbulb text-xl text-gray-600 group-hover:text-gray-900"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-gray-900 transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-semibold text-gray-900 mb-2">Strategic Consulting</h3>
+                    <p class="font-light text-gray-600 text-sm">Expert guidance on digital strategy and growth planning.</p>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2: Contact Form -->
+    <div id="wizard-step-2" class="min-h-screen flex items-center justify-center py-16 px-6 hidden">
+        <div class="absolute top-6 left-6">
+            <button onclick="goToStep1()" class="text-sm font-light text-gray-500 hover:text-gray-900 transition-colors flex items-center">
+                <i class="fa-solid fa-arrow-left mr-2"></i>
+                Back
+            </button>
+        </div>
+
+        <div class="max-w-2xl w-full mx-auto">
+            <div class="mb-8 text-center">
+                <div class="flex justify-center items-center space-x-3 mb-6">
+                    <div class="w-10 h-1 bg-gray-900 rounded-full"></div>
+                    <div class="w-10 h-1 bg-gray-900 rounded-full"></div>
+                </div>
+                <p class="text-sm tracking-widest uppercase font-light text-gray-500">Step 2 of 2</p>
+            </div>
+
+            <h2 id="step2-headline" class="text-4xl md:text-5xl font-serif font-semibold text-gray-900 mb-6 text-center leading-tight">
+                Let's build your<br/>Digital Presence
+            </h2>
+
+            <p class="text-lg font-light text-gray-600 text-center mb-10">
+                Share a few details and we'll be in touch within 24 hours.
+            </p>
+
+            <form id="contact-form" class="space-y-6">
+                <input type="hidden" id="service" name="service" value="">
+
+                <div>
+                    <input type="text" id="name" name="name" required placeholder="Your Name"
+                        class="w-full bg-transparent border-b-2 border-gray-300 focus:border-gray-900 outline-none py-4 text-lg font-light placeholder-gray-400 transition-colors">
+                </div>
+
+                <div>
+                    <input type="text" id="company" name="company" placeholder="Company Name"
+                        class="w-full bg-transparent border-b-2 border-gray-300 focus:border-gray-900 outline-none py-4 text-lg font-light placeholder-gray-400 transition-colors">
+                </div>
+
+                <div>
+                    <input type="email" id="email" name="email" required placeholder="Email Address"
+                        class="w-full bg-transparent border-b-2 border-gray-300 focus:border-gray-900 outline-none py-4 text-lg font-light placeholder-gray-400 transition-colors">
+                </div>
+
+                <div>
+                    <input type="tel" id="phone" name="phone" placeholder="Phone Number"
+                        class="w-full bg-transparent border-b-2 border-gray-300 focus:border-gray-900 outline-none py-4 text-lg font-light placeholder-gray-400 transition-colors">
+                </div>
+
+                <div>
+                    <textarea id="message" name="message" rows="3" placeholder="Tell us about your project (optional)"
+                        class="w-full bg-transparent border-b-2 border-gray-300 focus:border-gray-900 outline-none py-4 text-lg font-light placeholder-gray-400 transition-colors resize-none"></textarea>
+                </div>
+
+                <div class="pt-6">
+                    <button type="submit" id="submit-btn"
+                        class="w-full bg-gray-900 text-white py-5 text-sm tracking-widest uppercase font-light hover:bg-gray-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                        Request Consultation
+                    </button>
+                    <p class="text-center text-sm font-light text-gray-500 mt-4">
+                        The Sogos team will review your goals and contact you shortly.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div id="wizard-success" class="min-h-screen flex items-center justify-center py-16 px-6 hidden">
+        <div class="max-w-2xl w-full mx-auto text-center">
+            <div class="w-20 h-20 mx-auto mb-8 flex items-center justify-center border-2 border-gray-900 rounded-full">
+                <i class="fa-solid fa-check text-3xl text-gray-900"></i>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-serif font-semibold text-gray-900 mb-6">
+                Thank you
+            </h2>
+
+            <p class="text-lg font-light text-gray-600 mb-10 max-w-xl mx-auto">
+                We've received your request and will be in touch within 24 hours to discuss your project.
+            </p>
+
+            <button onclick="hideContactWizard()" class="inline-block bg-gray-900 text-white px-12 py-4 text-sm tracking-widest uppercase font-light hover:bg-gray-800 transition-all duration-300">
+                Return to Home
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+const headlines = {
+    'Brand & Website': "Let's build your<br/>Digital Presence",
+    'Workflow Automation': "Let's automate<br/>your workflow",
+    'Data & Insights': "Let's unlock<br/>your data insights",
+    'Strategic Consulting': "Let's develop<br/>your strategy"
+};
+
+let selectedService = '';
+
+function showContactWizard() {
+    document.getElementById('contact-wizard').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    // Reset to step 1
+    document.getElementById('wizard-step-1').classList.remove('hidden');
+    document.getElementById('wizard-step-2').classList.add('hidden');
+    document.getElementById('wizard-success').classList.add('hidden');
+}
+
+function hideContactWizard() {
+    document.getElementById('contact-wizard').classList.add('hidden');
+    document.body.style.overflow = '';
+    // Reset form
+    document.getElementById('contact-form').reset();
+}
+
+function selectService(service) {
+    selectedService = service;
+    document.getElementById('service').value = service;
+    document.getElementById('step2-headline').innerHTML = headlines[service];
+
+    document.getElementById('wizard-step-1').classList.add('hidden');
+    document.getElementById('wizard-step-2').classList.remove('hidden');
+}
+
+function goToStep1() {
+    document.getElementById('wizard-step-2').classList.add('hidden');
+    document.getElementById('wizard-step-1').classList.remove('hidden');
+}
+
+// Form submission
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const submitBtn = document.getElementById('submit-btn');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    const formData = {
+        name: document.getElementById('name').value,
+        company: document.getElementById('company').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('message').value,
+        service: document.getElementById('service').value
+    };
+
+    try {
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            document.getElementById('wizard-step-2').classList.add('hidden');
+            document.getElementById('wizard-success').classList.remove('hidden');
+        } else {
+            alert(result.message || 'Something went wrong. Please try again.');
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to send message. Please try again later.');
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }
+});
+
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    const icon = mobileMenuBtn.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-xmark');
+});
+
+mobileMenu.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-xmark');
+    });
+});
+
+// Header scroll behavior
+let lastScroll = 0;
+const header = document.getElementById('header');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    if (currentScroll <= 0) {
+        header.classList.remove('shadow-sm');
+        return;
+    }
+    if (currentScroll > lastScroll && currentScroll > 100) {
+        header.style.transform = 'translateY(-100%)';
+    } else {
+        header.style.transform = 'translateY(0)';
+        header.classList.add('shadow-sm');
+    }
+    lastScroll = currentScroll;
+});
+</script>
+
+</body>
+</html>

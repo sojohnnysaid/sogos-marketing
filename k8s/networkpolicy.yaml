@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: sogos-marketing-policy
+  namespace: sogos-marketing
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  ingress:
+  # Allow traffic from ingress namespace (cloudflared)
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: ingress
+  # Allow traffic from monitoring namespace (prometheus)
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: monitoring
+  # Allow pod-to-pod traffic within namespace
+  - from:
+    - podSelector: {}

@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sogos-backend
+  namespace: sogos-marketing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sogos-backend
+  template:
+    metadata:
+      labels:
+        app: sogos-backend
+    spec:
+      tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+        effect: NoSchedule
+      containers:
+      - name: backend
+        image: ghcr.io/sojohnnysaid/sogos-backend:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MAILGUN_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: mailgun-credentials
+              key: api-key
+        - name: MAILGUN_DOMAIN
+          value: "mg.sogos.io"
+        - name: CONTACT_EMAIL
+          value: "john@sogos.io"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
+          runAsUser: 1000
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
